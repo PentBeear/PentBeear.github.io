@@ -32,7 +32,7 @@ class hypixelWrapper {
     console.log(key);
     console.log(product);
     var output = "";
-    fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
+    var outputValue = fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
     .then((resp) => resp.json())
     .then(function(data)
     {
@@ -68,10 +68,9 @@ class hypixelWrapper {
             console.log(output);  
             return output
         }      
-        return output
     });
-    console.log("Returning value!" + output);
-    return output;
+    console.log("Returning value!" + outputValue);
+    return outputValue;
     };
 
     _formatMenu(menu) {
