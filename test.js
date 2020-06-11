@@ -4,24 +4,28 @@ class hypixelWrapper {
             "id": "HypixelBazaarWrapper",
             "name": "HypixelBazaarWrapper",
             "blocks": [{
-                "opcode": "jsonGetList",
+                "opcode": "jsonGetInfo",
                 "blockType": "reporter",
-                "text": "GetBazaarList: [key]",
+                "text": "GetBazaarItem: [key] [product]",
                 "arguments": {
                     "key": {
                         "type": "string",
                         "defaultValue": "put your key here"
+                    },
+                    "product": {
+                        "type": "string",
+                        "defaultValue": "put the product name here"
                     }
                 }
             }],
         };
     }
-    jsonGetList (key) {
+    jsonGetInfo (key,product) {
     console.log(key.key);
-    fetch("https://api.hypixel.net/skyblock/bazaar/products?key=" + key.key)
+    fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key.key + "&productId=" + product )
     .then(response => response.json())
-    .then(data => console.log(data.productIds));
-    return data.productIds;
+    .then(data => console.log(data));
+    return data;
     
         
         
