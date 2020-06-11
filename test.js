@@ -32,28 +32,28 @@ class hypixelWrapper {
     console.log(key);
     console.log(product);
     fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
-    .then(response => response.json())
-    .then(function(data)
+    .then(function(response)
     {
+        console.log(response.headers.get('Content-Type'));
         if (oper === 'BuyVolume') {
             setTimeout(function(){
-                return JSON.stringify(data.product_info.quick_status.buyVolume)
+                return JSON.stringify(reponse.product_info.quick_status.buyVolume)
               }, 1000);    
         }
         if (oper === 'SellVolume') {
-            return data.product_info.quick_status.sellVolume
+            return reponse.product_info.quick_status.sellVolume
         }
         if (oper === 'BuyPrice') {
-            return data.product_info.quick_status.buyPrice
+            return reponse.product_info.quick_status.buyPrice
         }
         if (oper === 'SellPrice') {
-            return data.product_info.quick_status.sellPrice
+            return reponse.product_info.quick_status.sellPrice
         }
         if (oper === 'BuyOrders') {
-            return data.product_info.quick_status.buyOrders
+            return reponse.product_info.quick_status.buyOrders
         }
         if (oper === 'SellOrders') {
-            return data.product_info.quick_status.sellOrders
+            return reponse.product_info.quick_status.sellOrders
         }       
     });
     };
