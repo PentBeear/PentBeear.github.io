@@ -40,22 +40,33 @@ class hypixelWrapper {
         if (oper === 'BuyVolume') {
             console.log("Getting Buy Volume")
             output = JSON.stringify(data.product_info.quick_status.buyVolume)   
-            console.log(output);   
+            console.log(output);  
+            return output 
         }
         if (oper === 'SellVolume') {
-            return data.product_info.quick_status.sellVolume
+            output = JSON.stringify(data.product_info.quick_status.sellVolume)  
+            console.log(output);  
+            return output
         }
         if (oper === 'BuyPrice') {
-            return data.product_info.quick_status.buyPrice
+            output = JSON.stringify(data.product_info.quick_status.buyPrice)  
+            console.log(output);
+            return output      
         }
         if (oper === 'SellPrice') {
-            return data.product_info.quick_status.sellPrice
+            output = JSON.stringify(data.product_info.quick_status.sellPrice) 
+            console.log(output);   
+            return output 
         }
         if (oper === 'BuyOrders') {
-            return data.product_info.quick_status.buyOrders
+            output = JSON.stringify(data.product_info.quick_status.buyOrders)  
+            console.log(output);   
+            return output
         }
         if (oper === 'SellOrders') {
-            return data.product_info.quick_status.sellOrders
+            output = JSON.stringify(data.product_info.quick_status.sellOrders)   
+            console.log(output);  
+            return output
         }      
         return output
 
