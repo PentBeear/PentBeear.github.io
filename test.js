@@ -39,7 +39,8 @@ class hypixelWrapper {
         console.log(data)
         if (oper === 'BuyVolume') {
             console.log("Getting Buy Volume")
-            output = JSON.stringify(data.product_info.quick_status.buyVolume)      
+            output = JSON.stringify(data.product_info.quick_status.buyVolume)   
+            console.log(output);   
         }
         if (oper === 'SellVolume') {
             return data.product_info.quick_status.sellVolume
