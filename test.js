@@ -70,7 +70,10 @@ class hypixelWrapper {
         }      
     });
     console.log("Returning value!" + outputValue);
+    while (outputValue == "[object Promise]")
+    {
     return outputValue;
+    }
     };
 
     _formatMenu(menu) {
