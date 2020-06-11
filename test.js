@@ -35,6 +35,7 @@ class hypixelWrapper {
     .then(response => response.json())
     .then(data => console.log(data));
     if (oper === 'BuyVolume') {
+        console.log("test");
         return data.product_info.quick_status.buyVolume
     }
     if (oper === 'SellVolume') {
@@ -53,7 +54,7 @@ class hypixelWrapper {
         return data.product_info.quick_status.sellOrders
     }       
     };
-    
+
     _formatMenu(menu) {
         const m = [];
         for (let i = 0; i < menu.length; i++) {
