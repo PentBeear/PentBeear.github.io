@@ -19,7 +19,7 @@ class hypixelWrapper {
                     "oper": {
                         "type": "string",
                         "menu": "selectValue",
-                        "defaultValue": ""
+                        "defaultValue": "BuyVolume"
                     },
                 }
             }],
