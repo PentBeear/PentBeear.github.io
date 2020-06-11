@@ -20,9 +20,10 @@ class hypixelWrapper {
     console.log(key.key);
     fetch("https://api.hypixel.net/skyblock/bazaar/products?key=" + key.key)
     .then(response => response.json())
-    .then(data => console.log(data.productIds),console.log("Got Data!"));
+    .then(data => console.log(data.productIds));
     
         
         
     };
 }
+Scratch.extensions.register(new hypixelWrapper());
