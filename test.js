@@ -37,8 +37,8 @@ class hypixelWrapper {
     {
         console.log(data)
         if (oper === 'BuyVolume') {
-                console.log("Getting Buy Volume")
-                return JSON.stringify(data.product_info.quick_status.buyVolume)      
+            console.log("Getting Buy Volume")
+            output = JSON.stringify(data.product_info.quick_status.buyVolume)      
         }
         if (oper === 'SellVolume') {
             return data.product_info.quick_status.sellVolume
@@ -54,7 +54,9 @@ class hypixelWrapper {
         }
         if (oper === 'SellOrders') {
             return data.product_info.quick_status.sellOrders
-        }       
+        }      
+        return output
+
     });
     };
 
