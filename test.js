@@ -19,7 +19,7 @@ class hypixelWrapper {
                     "oper": {
                         "type": "string",
                         "menu": "selectvalue",
-                        "defaultValue": "BuyVolume"
+                        "defaultValue": "0"
                     },
                 }
             }],
@@ -39,37 +39,37 @@ class hypixelWrapper {
     .then(function(data)
     {
         console.log(data)
-        if (oper == 'BuyVolume') {
+        if (oper == 0) {
             console.log("Getting Buy Volume")
             output = JSON.stringify(data.product_info.quick_status.buyVolume)   
             console.log(output);  
  
         }
-        if (oper == 'SellVolume') {
+        if (oper == 1) {
             console.log("Getting Sell Volume")
             output = JSON.stringify(data.product_info.quick_status.sellVolume)  
             console.log(output);  
 
         }
-        if (oper == 'BuyPrice') {
+        if (oper == 2) {
             console.log("Getting Buy Price")
             output = JSON.stringify(data.product_info.quick_status.buyPrice)  
             console.log(output); 
      
         }
-        if (oper == 'SellPrice') {
+        if (oper == 3) {
             console.log("Getting Sell Price")
             output = JSON.stringify(data.product_info.quick_status.sellPrice) 
             console.log(output);   
            
         }
-        if (oper == 'BuyOrders') {
+        if (oper == 4) {
             console.log("Getting Buy Orders")
             output = JSON.stringify(data.product_info.quick_status.buyOrders)  
             console.log(output);   
         
         }
-        if (oper == 'SellOrders') {
+        if (oper == 5) {
             console.log("Getting Sell Orders")
             output = JSON.stringify(data.product_info.quick_status.sellOrders)   
             console.log(output);  
