@@ -44,36 +44,67 @@ class hypixelWrapper {
             console.log(output);  
             return output 
         }
-        if (oper === 'SellVolume') {
+        else {
+            if (oper === 'SellVolume') {
             console.log("Getting Sell Volume")
             output = JSON.stringify(data.product_info.quick_status.sellVolume)  
             console.log(output);  
             return output
         }
-        if (oper === 'BuyPrice') {
-            console.log("Getting Buy Price")
-            output = JSON.stringify(data.product_info.quick_status.buyPrice)  
-            console.log(output); 
-            return output      
+        else {
+
+            if (oper === 'BuyPrice') {
+                console.log("Getting Buy Price")
+                output = JSON.stringify(data.product_info.quick_status.buyPrice)  
+                console.log(output); 
+                return output      
+            }
+            else
+            {
+
+                if (oper === 'SellPrice') {
+                    console.log("Getting Sell Price")
+                    output = JSON.stringify(data.product_info.quick_status.sellPrice) 
+                    console.log(output);   
+                    return output 
+                }
+                else
+                {
+                    if (oper === 'BuyOrders') {
+                        console.log("Getting Buy Orders")
+                        output = JSON.stringify(data.product_info.quick_status.buyOrders)  
+                        console.log(output);   
+                        return output
+                    }
+                    else
+                    {
+                        if (oper === 'SellOrders') {
+                            console.log("Getting Sell Orders")
+                            output = JSON.stringify(data.product_info.quick_status.sellOrders)   
+                            console.log(output);  
+                            return output
+                        }  
+                    }
+
+                }
+
+
+            }
+
+
+
+            
         }
-        if (oper === 'SellPrice') {
-            console.log("Getting Sell Price")
-            output = JSON.stringify(data.product_info.quick_status.sellPrice) 
-            console.log(output);   
-            return output 
-        }
-        if (oper === 'BuyOrders') {
-            console.log("Getting Buy Orders")
-            output = JSON.stringify(data.product_info.quick_status.buyOrders)  
-            console.log(output);   
-            return output
-        }
-        if (oper === 'SellOrders') {
-            console.log("Getting Sell Orders")
-            output = JSON.stringify(data.product_info.quick_status.sellOrders)   
-            console.log(output);  
-            return output
-        }      
+    }
+        
+
+
+
+
+        
+        
+        
+            
     });
     await wait(1000)
     console.log("Returning value!" + outputValue);
