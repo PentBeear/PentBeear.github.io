@@ -40,7 +40,7 @@ class hypixelWrapper {
             setTimeout(function(){
                 console.log("Getting Buy Volume")
                 return JSON.stringify(data.product_info.quick_status.buyVolume)
-              }, 1000);    
+              }, 1000);   
         }
         if (oper === 'SellVolume') {
             return data.product_info.quick_status.sellVolume
@@ -58,6 +58,7 @@ class hypixelWrapper {
             return data.product_info.quick_status.sellOrders
         }       
     });
+    return
     };
 
     _formatMenu(menu) {
