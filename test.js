@@ -24,7 +24,7 @@ class hypixelWrapper {
                 }
             }],
             "menus": {
-                selectvalue: this._formatMenu(['BuyVolume', 'SellVolume', 'BuyPrice', 'SellPrice', 'BuyOrders', 'SellOrders']),
+                selectvalue: this._formatMenu(["BuyVolume", "SellVolume", "BuyPrice", "SellPrice", "BuyOrders", "SellOrders"]),
             }
         };
     }
@@ -38,37 +38,37 @@ class hypixelWrapper {
     .then(function(data)
     {
         console.log(data)
-        if (oper === 'BuyVolume') {
+        if (oper === "BuyVolume") {
             console.log("Getting Buy Volume")
             output = JSON.stringify(data.product_info.quick_status.buyVolume)   
             console.log(output);  
  
         }
-        if (oper === 'SellVolume') {
+        if (oper === "SellVolume") {
             console.log("Getting Sell Volume")
             output = JSON.stringify(data.product_info.quick_status.sellVolume)  
             console.log(output);  
 
         }
-        if (oper === 'BuyPrice') {
+        if (oper === "BuyPrice") {
             console.log("Getting Buy Price")
             output = JSON.stringify(data.product_info.quick_status.buyPrice)  
             console.log(output); 
      
         }
-        if (oper === 'SellPrice') {
+        if (oper === "SellPrice") {
             console.log("Getting Sell Price")
             output = JSON.stringify(data.product_info.quick_status.sellPrice) 
             console.log(output);   
            
         }
-        if (oper === 'BuyOrders') {
+        if (oper === "BuyOrders") {
             console.log("Getting Buy Orders")
             output = JSON.stringify(data.product_info.quick_status.buyOrders)  
             console.log(output);   
         
         }
-        if (oper === 'SellOrders') {
+        if (oper === "SellOrders") {
             console.log("Getting Sell Orders")
             output = JSON.stringify(data.product_info.quick_status.sellOrders)   
             console.log(output);  
@@ -76,7 +76,7 @@ class hypixelWrapper {
         }      
     });
     await wait(1000)
-    console.log("Returning value!" + output);
+    console.log("Returning value! " + output);
     return output
     };
 
