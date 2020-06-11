@@ -4,7 +4,7 @@ class hypixelWrapper {
             "id": "HypixelBazaarWrapper",
             "name": "HypixelBazaarWrapper",
             "blocks": [{
-                "opcode": "jsonGet",
+                "opcode": "jsonGetList",
                 "blockType": "reporter",
                 "text": "GetBazaarList: [key]",
                 "arguments": {
@@ -16,12 +16,14 @@ class hypixelWrapper {
             }],
         };
     }
-    jsonGet (key) {
+    jsonGetList (key) {
+    let jsonString;
     console.log(key.key);
     fetch("https://api.hypixel.net/skyblock/bazaar/products?key=" + key.key)
     .then(response => response.json())
-    .then(data => console.log(data));
-    console.log(JSON.stringify(data));
+    .then(data => jsonString = data);
+    console.log(jsonString);
+    
         
         
     };
