@@ -67,11 +67,11 @@ class hypixelWrapper {
             output = JSON.stringify(data.product_info.quick_status.sellOrders)   
             console.log(output);  
             return output
-        } 
-        console.log("Returning value!" + output);     
+        }      
         return output
-
     });
+    console.log("Returning value!" + output);
+    return output;
     };
 
     _formatMenu(menu) {
