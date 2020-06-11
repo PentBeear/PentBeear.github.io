@@ -58,7 +58,7 @@ class hypixelWrapper {
             return data.product_info.quick_status.sellOrders
         }       
     });
-    return
+    return "test;"
     };
 
     _formatMenu(menu) {
