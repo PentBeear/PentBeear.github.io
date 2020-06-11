@@ -36,7 +36,6 @@ class hypixelWrapper {
     .then(data => console.log(data))
     .then(function(data)
     {
-        reponse => reponse.json;
         console.log(response.headers.get('Content-Type'));
         if (oper === 'BuyVolume') {
             setTimeout(function(){
