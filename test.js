@@ -6,7 +6,7 @@ class hypixelWrapper {
             "blocks": [{
                 "opcode": "jsonGetInfo",
                 "blockType": "reporter",
-                "text": "GetBazaarItem: [key] [product]",
+                "text": "GetBazaarItem: [key][product]",
                 "arguments": {
                     "key": {
                         "type": "string",
