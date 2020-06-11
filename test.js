@@ -70,11 +70,7 @@ class hypixelWrapper {
         }      
     });
     console.log("Returning value!" + outputValue);
-    if (isNaN(outputValue))
-    {
-        console.log("Got value too early!");
-    }
-    return outputValue
+    return this.checkValue()
     };
 
     _formatMenu(menu) {
@@ -87,6 +83,16 @@ class hypixelWrapper {
         }
         return m;
     }
-
+   
+    checkValue()
+    {
+        if(isNaN(outputValue)) {
+            window.setTimeout(checkValue, 100); /* this checks the flag every 100 milliseconds*/
+         } else {
+           return outputValue;
+         }
+     }
 }
+
+    
 Scratch.extensions.register(new hypixelWrapper());
