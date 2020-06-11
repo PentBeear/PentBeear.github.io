@@ -5,12 +5,6 @@ class jsonGrabber {
             "id": "jsonGrabber",
             "name": "jsonGrabber",
             "blocks": [{
-                "opcode": "ncheck",
-                "blockType": "Boolean",
-                "text": "Grabs json from an api",
-                "arguments": {}
-            }, {
-            }, {
                 "opcode": "jQuGet",
                 "blockType": "reporter",
                 "text": "gets json from a url: [myURL]",
@@ -33,6 +27,7 @@ class jsonGrabber {
             success: success
           });
           console.log(data);
+          console.log("got data!");
         return data;
     }
 }
