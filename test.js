@@ -21,6 +21,9 @@ class hypixelWrapper {
                         "menu": "selectvalue",
                         "defaultValue": "BuyVolume"
                     },
+                    "jsonObject": {
+                        "type": "string",
+                    },
                 }
             }],
             "menus": {
@@ -28,8 +31,7 @@ class hypixelWrapper {
             }
         };
     }
-    jsonGetInfo ({key, product, oper}) {
-    let jsonObject;
+    jsonGetInfo ({key, product, oper, jsonObject}) {
     console.log(key);
     console.log(product);
     fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
@@ -38,7 +40,7 @@ class hypixelWrapper {
     if (oper === 'BuyVolume') {
         setTimeout(function(){
             console.log(jsonObject);
-            return JSON.stringify(data.product_info.quick_status.buyVolume)
+            return JSON.stringify(jsonObject.product_info.quick_status.buyVolume)
           }, 1000);    
     }
     if (oper === 'SellVolume') {
