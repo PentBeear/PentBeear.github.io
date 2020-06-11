@@ -32,6 +32,7 @@ class hypixelWrapper {
     console.log(key);
     console.log(product);
     var output = "";
+    var wait = ms => new Promise((r, j)=>setTimeout(r, ms))
     var outputValue = fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
     .then((resp) => resp.json())
     .then(function(data)
@@ -70,7 +71,8 @@ class hypixelWrapper {
         }      
     });
     console.log("Returning value!" + outputValue);
-    return this.checkValue()
+    await wait(1000)
+    return outputValue
     };
 
     _formatMenu(menu) {
@@ -84,14 +86,7 @@ class hypixelWrapper {
         return m;
     }
    
-    checkValue()
-    {
-        if(isNaN(outputValue)) {
-            window.setTimeout(checkValue, 100); /* this checks the flag every 100 milliseconds*/
-         } else {
-           return outputValue;
-         }
-     }
+
 }
 
     
