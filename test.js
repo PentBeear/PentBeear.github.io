@@ -18,7 +18,7 @@ class jsonGrabber {
     }
     jsonGet (myURL) {
     console.log(myURL.myURL);
-    fetch(myURL)
+    fetch(myURL.myURL)
     .then(response => response.json())
     .then(data => console.log(data));
         
