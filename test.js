@@ -1,5 +1,5 @@
 class jsonGrabber {
-    //Converted from https://raw.githubusercontent.com/NitroCipher/NitroBlock/master/MainScript.js to Scratch 3.0 using Ext2to3!
+
     getInfo() {
         return {
             "id": "jsonGrabber",
@@ -31,37 +31,19 @@ class jsonGrabber {
                     }
                 }
             }],
-            "menus": {
-                supermath: this._formatMenu(['+', '-', '/', '*', '^', 'sqrt']),
-            }
         };
-    }
-    ncheck({
-        check
-    }) {
-        return true
     }
     jQuGet({
         myURL
     }) {
-
         $.ajaxSetup({
             async: false
         });
         $.getJSON(myURL, function(data) {
             jsonObject = data;
+            console.log(data);
         });
         return jsonObject;
-    }
-    _formatMenu(menu) {
-        const m = [];
-        for (let i = 0; i < menu.length; i++) {
-            const obj = {};
-            obj.text = menu[i];
-            obj.value = i.toString();
-            m.push(obj);
-        }
-        return m;
     }
 }
 Scratch.extensions.register(new jsonGrabber());
