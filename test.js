@@ -29,14 +29,13 @@ class hypixelWrapper {
         };
     }
     jsonGetInfo ({key, product, oper}) {
-    jsonObject = [];
     console.log(key);
     console.log(product);
     fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
     .then(response => response.json())
-    .then(data => console.log(data), jsonObject = data);
+    .then(data => console.log(data));
     if (oper === 'BuyVolume') {
-        console.log("test");
+        console.log(data);
         setTimeout(function(){
             return JSON.stringify(jsonObject.product_info.quick_status.buyVolume)
           }, 1000);    
