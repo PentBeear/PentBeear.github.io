@@ -21,9 +21,6 @@ class hypixelWrapper {
                         "menu": "selectvalue",
                         "defaultValue": "BuyVolume"
                     },
-                    "jsonObject": {
-                        "type": "string",
-                    },
                 }
             }],
             "menus": {
@@ -31,33 +28,34 @@ class hypixelWrapper {
             }
         };
     }
-    jsonGetInfo ({key, product, oper, jsonObject}) {
+    jsonGetInfo ({key, product, oper}) {
     console.log(key);
     console.log(product);
     fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
     .then(response => response.json())
-    .then(data => console.log(data), jsonObject = JSON.stringify(data));
-    if (oper === 'BuyVolume') {
-        setTimeout(function(){
-            console.log(jsonObject);
-            return JSON.stringify(jsonObject.product_info.quick_status.buyVolume)
-          }, 1000);    
-    }
-    if (oper === 'SellVolume') {
-        return data.product_info.quick_status.sellVolume
-    }
-    if (oper === 'BuyPrice') {
-        return data.product_info.quick_status.buyPrice
-    }
-    if (oper === 'SellPrice') {
-        return data.product_info.quick_status.sellPrice
-    }
-    if (oper === 'BuyOrders') {
-        return data.product_info.quick_status.buyOrders
-    }
-    if (oper === 'SellOrders') {
-        return data.product_info.quick_status.sellOrders
-    }       
+    .then(function(data)
+    {
+        if (oper === 'BuyVolume') {
+            setTimeout(function(){
+                return JSON.stringify(data.product_info.quick_status.buyVolume)
+              }, 1000);    
+        }
+        if (oper === 'SellVolume') {
+            return data.product_info.quick_status.sellVolume
+        }
+        if (oper === 'BuyPrice') {
+            return data.product_info.quick_status.buyPrice
+        }
+        if (oper === 'SellPrice') {
+            return data.product_info.quick_status.sellPrice
+        }
+        if (oper === 'BuyOrders') {
+            return data.product_info.quick_status.buyOrders
+        }
+        if (oper === 'SellOrders') {
+            return data.product_info.quick_status.sellOrders
+        }       
+    });
     };
 
     _formatMenu(menu) {
