@@ -36,8 +36,9 @@ class hypixelWrapper {
     .then(data => console.log(data));
     if (oper === 'BuyVolume') {
         console.log("test");
-        console.log(data);
-       // return JSON.stringify(data.product_info.quick_status.buyVolume)
+        setTimeout(function(){
+            return JSON.stringify(data.product_info.quick_status.buyVolume)
+          }, 1000);    
     }
     if (oper === 'SellVolume') {
         return data.product_info.quick_status.sellVolume
