@@ -10,7 +10,7 @@ class hypixelWrapper {
                 "arguments": {
                     "key": {
                         "type": "string",
-                        "defaultValue": "#"
+                        "defaultValue": "put ya key here"
                     },
                     "product": {
                         "type": "string",
