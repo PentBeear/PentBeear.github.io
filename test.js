@@ -10,7 +10,7 @@ class hypixelWrapper {
                 "arguments": {
                     "key": {
                         "type": "string",
-                        "defaultValue": "http://google.com"
+                        "defaultValue": "put your key here"
                     }
                 }
             }],
@@ -22,6 +22,7 @@ class hypixelWrapper {
     .then(response => response.json())
     .then(data => console.log(data));
     let jsonInbetween = JSON.stringify(data.productIds);
+    console.log(jsonInbetween);
     return jsonInbetween;
         
         
