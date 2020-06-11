@@ -28,7 +28,7 @@ class hypixelWrapper {
             }
         };
     }
-    jsonGetInfo ({key, product, oper}) {
+   async jsonGetInfo ({key, product, oper}) {
     console.log(key);
     console.log(product);
     var output = "";
@@ -51,7 +51,7 @@ class hypixelWrapper {
         }
         if (oper === 'BuyPrice') {
             output = JSON.stringify(data.product_info.quick_status.buyPrice)  
-            console.log(output);
+            console.log(output); 
             return output      
         }
         if (oper === 'SellPrice') {
