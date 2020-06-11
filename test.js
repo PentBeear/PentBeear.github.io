@@ -1,14 +1,14 @@
-class jsonGrabber {
+class hypixelWrapper {
     getInfo() {
         return {
-            "id": "jsonGrabber",
-            "name": "jsonGrabber",
+            "id": "HypixelBazaarWrapper",
+            "name": "HypixelBazaarWrapper",
             "blocks": [{
                 "opcode": "jsonGet",
                 "blockType": "reporter",
-                "text": "gets json from a url: [myURL]",
+                "text": "GetBazaarList: [key]",
                 "arguments": {
-                    "myURL": {
+                    "key": {
                         "type": "string",
                         "defaultValue": "http://google.com"
                     }
@@ -16,13 +16,13 @@ class jsonGrabber {
             }],
         };
     }
-    jsonGet (myURL) {
-    console.log(myURL.myURL);
-    fetch(myURL.myURL)
+    jsonGet (key) {
+    console.log(key.key);
+    fetch("https://api.hypixel.net/skyblock/bazaar/products?key=" + key.key)
     .then(response => response.json())
     .then(data => console.log(data));
         
         
     };
 }
-Scratch.extensions.register(new jsonGrabber());
+Scratch.extensions.register(new hypixelWrapper());
