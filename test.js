@@ -33,7 +33,7 @@ class hypixelWrapper {
     console.log(product);
     var output = "";
     var wait = ms => new Promise((r, j)=>setTimeout(r, ms))
-    var outputValue = fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
+    fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
     .then((resp) => resp.json())
     .then(function(data)
     {
@@ -76,8 +76,8 @@ class hypixelWrapper {
         }      
     });
     await wait(1000)
-    console.log("Returning value!" + outputValue);
-    return outputValue
+    console.log("Returning value!" + output);
+    return output
     };
 
     _formatMenu(menu) {
