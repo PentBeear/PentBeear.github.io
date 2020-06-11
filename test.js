@@ -10,17 +10,17 @@ class hypixelWrapper {
                 "arguments": {
                     "key": {
                         "type": "string",
-                        "defaultValue": ""
+                        "defaultValue": "#"
                     },
                     "product": {
                         "type": "string",
-                        "defaultValue": ""
+                        "defaultValue": "INK_SACK:3"
                     }
                 }
             }],
         };
     }
-    jsonGetInfo (key,product) {
+    jsonGetInfo ({key, product}) {
     console.log(key.key);
     console.log(product);
     fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key.key + "&productId=" + product)
