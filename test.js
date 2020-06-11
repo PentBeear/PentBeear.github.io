@@ -29,6 +29,7 @@ class hypixelWrapper {
         };
     }
    async jsonGetInfo ({key, product, oper}) {
+    console.log(oper);
     console.log(key);
     console.log(product);
     var output = "";
