@@ -29,15 +29,16 @@ class hypixelWrapper {
         };
     }
     jsonGetInfo ({key, product, oper}) {
+    let jsonObject;
     console.log(key);
     console.log(product);
     fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => console.log(data), jsonObject = data);
     if (oper === 'BuyVolume') {
         setTimeout(function(){
-            console.log(data);
-            return JSON.stringify(jsonObject.product_info.quick_status.buyVolume)
+            console.log(jsonObject);
+            return JSON.stringify(data.product_info.quick_status.buyVolume)
           }, 1000);    
     }
     if (oper === 'SellVolume') {
