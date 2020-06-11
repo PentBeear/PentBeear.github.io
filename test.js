@@ -18,13 +18,13 @@ class hypixelWrapper {
                     },
                     "oper": {
                         "type": "string",
-                        "menu": "selectValue",
+                        "menu": "selectvalue",
                         "defaultValue": "BuyVolume"
                     },
                 }
             }],
             "menus": {
-                selectValue: this._formatMenu(['BuyVolume', 'SellVolume', 'BuyPrice', 'SellPrice', 'BuyOrders', 'SellOrders']),
+                selectvalue: this._formatMenu(['BuyVolume', 'SellVolume', 'BuyPrice', 'SellPrice', 'BuyOrders', 'SellOrders']),
             }
         };
     }
@@ -51,11 +51,19 @@ class hypixelWrapper {
     }
     if (oper === 'SellOrders') {
         return data.product_info.quick_status.sellOrders
-    }
-    
-    
-        
-        
+    }       
     };
+    
+    _formatMenu(menu) {
+        const m = [];
+        for (let i = 0; i < menu.length; i++) {
+            const obj = {};
+            obj.text = menu[i];
+            obj.value = i.toString();
+            m.push(obj);
+        }
+        return m;
+    }
+
 }
 Scratch.extensions.register(new hypixelWrapper());
