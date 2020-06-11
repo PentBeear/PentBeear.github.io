@@ -17,11 +17,10 @@ class hypixelWrapper {
         };
     }
     jsonGetList (key) {
-    let jsonString;
     console.log(key.key);
     fetch("https://api.hypixel.net/skyblock/bazaar/products?key=" + key.key)
     .then(response => response.json())
-    .then(data => console.log(data),jsonString = data,console.log("Got Data!"));
+    .then(data => console.log(data),console.log("Got Data!"));
     
         
         
