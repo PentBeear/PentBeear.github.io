@@ -34,6 +34,7 @@ class hypixelWrapper {
     fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
     .then(function(response)
     {
+        reponse => reponse.json;
         console.log(response.headers.get('Content-Type'));
         if (oper === 'BuyVolume') {
             setTimeout(function(){
