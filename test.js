@@ -70,10 +70,11 @@ class hypixelWrapper {
         }      
     });
     console.log("Returning value!" + outputValue);
-    while (outputValue == "[object Promise]")
+    if (isNaN(outputValue))
     {
-    return outputValue;
+        console.log("Got value too early!");
     }
+    return outputValue
     };
 
     _formatMenu(menu) {
