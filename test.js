@@ -10,16 +10,6 @@ class jsonGrabber {
                 "text": "Grabs json from an api",
                 "arguments": {}
             }, {
-                "opcode": "color",
-                "blockType": "reporter",
-                "text": "color [color]",
-                "arguments": {
-                    "color": {
-                        "type": "color",
-                        "defaultValue": 0
-                    }
-                }
-            }, {
             }, {
                 "opcode": "jQuGet",
                 "blockType": "reporter",
