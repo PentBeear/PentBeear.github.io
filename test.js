@@ -29,7 +29,7 @@ class hypixelWrapper {
         };
     }
     jsonGetInfo ({key, product, oper}) {
-    let jsonObject = [];
+    jsonObject = [];
     console.log(key);
     console.log(product);
     fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
