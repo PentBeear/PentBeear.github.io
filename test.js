@@ -37,23 +37,23 @@ class hypixelWrapper {
         console.log(response.headers.get('Content-Type'));
         if (oper === 'BuyVolume') {
             setTimeout(function(){
-                return JSON.stringify(reponse.product_info.quick_status.buyVolume)
+                return JSON.stringify(data.product_info.quick_status.buyVolume)
               }, 1000);    
         }
         if (oper === 'SellVolume') {
-            return reponse.product_info.quick_status.sellVolume
+            return data.product_info.quick_status.sellVolume
         }
         if (oper === 'BuyPrice') {
-            return reponse.product_info.quick_status.buyPrice
+            return data.product_info.quick_status.buyPrice
         }
         if (oper === 'SellPrice') {
-            return reponse.product_info.quick_status.sellPrice
+            return data.product_info.quick_status.sellPrice
         }
         if (oper === 'BuyOrders') {
-            return reponse.product_info.quick_status.buyOrders
+            return data.product_info.quick_status.buyOrders
         }
         if (oper === 'SellOrders') {
-            return reponse.product_info.quick_status.sellOrders
+            return data.product_info.quick_status.sellOrders
         }       
     });
     };
