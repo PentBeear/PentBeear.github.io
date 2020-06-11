@@ -70,8 +70,8 @@ class hypixelWrapper {
             return output
         }      
     });
-    console.log("Returning value!" + outputValue);
     await wait(1000)
+    console.log("Returning value!" + outputValue);
     return outputValue
     };
 
