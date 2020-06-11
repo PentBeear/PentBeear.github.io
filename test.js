@@ -32,10 +32,10 @@ class hypixelWrapper {
     console.log(key);
     console.log(product);
     fetch("https://api.hypixel.net/skyblock/bazaar/product?key=" + key + "&productId=" + product)
-    .then(response => response.json())
+    .then((resp) => resp.json())
     .then(function(data)
     {
-        data => console.log(data)
+        console.log(data)
         if (oper === 'BuyVolume') {
             setTimeout(function(){
                 return JSON.stringify(data.product_info.quick_status.buyVolume)
