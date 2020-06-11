@@ -26,14 +26,14 @@ class jsonGrabber {
     jQuGet({
         myURL
     }) {
-        $.ajaxSetup({
-            async: false
-        });
-        $.getJSON(myURL, function(data) {
-            jsonObject = data;
-            console.log(data);
-        });
-        return jsonObject;
+        $.ajax({
+            dataType: "json",
+            url: myURL,
+            data: data,
+            success: success
+          });
+          console.log(data);
+        return data;
     }
 }
 Scratch.extensions.register(new jsonGrabber());
