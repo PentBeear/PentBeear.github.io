@@ -16,12 +16,10 @@ class discordWrapper {
             }],
         };
     }
-   async loginModule ({key, product, oper}) {
+   async loginModule ({key}) {
     console.log(key);
 
     var output = "";
-
-    
 
         var js = document.createElement("script");
 
@@ -29,6 +27,15 @@ class discordWrapper {
         js.src = "https://pentbeear.github.io/discord.12.2.0.min.js";
 
         document.body.appendChild(js);
+
+    const client = new Discord.Client();
+
+
+    client.once('ready', () => {
+        console.log('Ready!');
+    });
+    
+    client.login(key)
 
     var wait = ms => new Promise((r, j)=>setTimeout(r, ms))
     
