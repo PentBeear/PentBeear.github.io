@@ -17,7 +17,7 @@ class discordWrapper {
         };
     }
    async loginModule ({key}) {
-    console.log(key);
+    
 
     var output = "";
 
@@ -29,6 +29,8 @@ class discordWrapper {
         document.body.appendChild(js);
 
     const client = new Discord.Client();
+
+    console.log(key);
 
 
     client.once('ready', () => {
