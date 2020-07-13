@@ -6,7 +6,7 @@ class discordWrapper {
             "blocks": [{
                 "opcode": "loginModule",
                 "blockType": "reporter",
-                "text": "GetBazaarItem: key: [key] product name: [product] select value: [oper]",
+                "text": "Log into discord bot: key: [key] ",
                 "arguments": {
                     "key": {
                         "type": "string",
@@ -21,7 +21,14 @@ class discordWrapper {
 
     var output = "";
 
-    <script type="text/javascript" src="https://pentbeear.github.io/discord.12.2.0.min.js"></script>
+    
+
+        var js = document.createElement("script");
+
+        js.type = "text/javascript";
+        js.src = "https://pentbeear.github.io/discord.12.2.0.min.js";
+
+        document.body.appendChild(js);
 
     var wait = ms => new Promise((r, j)=>setTimeout(r, ms))
     
