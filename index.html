@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="assets/img/app-icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icon0.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="assets/icon1.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icon2.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/icon3.png" />
+    <link rel="manifest" href="manifest.json"/>
+    <meta name="theme-color" content="#0066cc" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="WeatherApp" />
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-dark">
+    <div class="col-12 d-flex justify-content-center align-items-center min-vh-100">
+        <div class="container" role="main">
+            <div class="row g-0">
+                <div class="col-sm">
+                    <div class="card col-12 border-0 rounded-0 h-100" id="divLocation">
+                        <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-geo-alt" style="font-size: 3rem; color: rgb(221, 35, 35);"></i>
+                            <h2 style="color: rgb(221, 35, 35);">Chicago</h2>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="col-sm">
+                    <div class="card col-12 border-0 rounded-0 h-100" id="divConditions">
+                        <div class="card-body text-center">
+                            <h2>Current Conditions</h2>
+                            <i id="iconWeather" class="bi bi-geo-alt" style="font-size: 3rem;"></i>
+                        </div>
+                        <hr class="w-75 mx-auto">
+                        <div class="card-body text-center">
+                            <div class="d-flex mx-5 justify-content-center align-items-center">
+                                <div class="mx-5 d-flex justify-content-center align-items-center">
+                                    <i class="bi bi-thermometer-half" style="font-size: 3rem; color:orange"></i>
+                                    <div id="divTemperature" style="font-size: 2rem;">??°</div>
+                                </div>
+                                
+                                <div class="mx-5 d-flex justify-content-center align-items-center">
+                                    <i class="bi bi-droplet-half" style="font-size: 3rem; color: blue;"></i>
+                                    <div id="divHumidity" style="font-size: 2rem;">??%</div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div> 
+                </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+        // Get the data from the weather api and fill the text content of the divs with the appropriate data
+        fetch("https://api.open-meteo.com/v1/forecast?latitude=41.85&longitude=-87.65&current=temperature_2m,relative_humidity_2m,weather_code,cloud_cover&timezone=auto&temperature_unit=fahrenheit")
+        .then(response => {
+            if(response.ok) {
+                return response.json()
+            } else {
+                throw new Error(response.status)
+            }
+        }).then(data => {
+            document.querySelector('#divTemperature').textContent = data.current.temperature_2m + "°"
+            document.querySelector('#divHumidity').textContent = data.current.relative_humidity_2m + "°"
+            /*
+            case clearSky = 0
+            case mainlyClear = 1
+            case partlyCloudy = 2
+            case overcast = 3
+            case fog = 45
+            case depositingRimeFog = 48
+            case lightDrizzle = 51
+            case moderateDrizzle = 53
+            case denseDrizzle = 55
+            case lightFreezingDrizzle = 56
+            case moderateOrDenseFreezingDrizzle = 57
+            case lightRain = 61
+            case moderateRain = 63
+            case heavyRain = 65
+            case lightFreezingRain = 66
+            case moderateOrHeavyFreezingRain = 67
+            case slightSnowfall = 71
+            case moderateSnowfall = 73
+            case heavySnowfall = 75
+            case snowGrains = 77
+            case slightRainShowers = 80
+            case moderateRainShowers = 81
+            case heavyRainShowers = 82
+            case slightSnowShowers = 85
+            case heavySnowShowers = 86
+            case thunderstormSlightOrModerate = 95
+            case thunderstormStrong = 96
+            case thunderstormHeavy = 99
+            */
+           switch (data.current.weather_code) {
+            case 0:
+                document.querySelector('#iconWeather').setAttribute('class',"bi bi-sun")
+                break;
+
+            case 1,2:
+                document.querySelector('#iconWeather').setAttribute('class',"bi bi-cloud-sun")
+                break;
+
+            case 3:
+                document.querySelector('#iconWeather').setAttribute('class',"bi bi-cloudy")
+                break;
+           
+            case 45,48:
+                document.querySelector('#iconWeather').setAttribute('class',"bi bi-cloud-fog")
+                break;
+
+            case 51,53,55,56,57:
+                document.querySelector('#iconWeather').setAttribute('class',"bi bi-cloud-drizzle")
+                break;
+            
+            case 61,63,80,81:
+                document.querySelector('#iconWeather').setAttribute('class',"bi bi-cloud-rain")
+                break;
+
+            case 65,67,82,82:
+                document.querySelector('#iconWeather').setAttribute('class',"bi bi-cloud-rain-heavy")
+                break;
+
+            case 71,73,75,77,85,86:
+                document.querySelector('#iconWeather').setAttribute('class',"bi bi-cloud-snow")
+                break;
+
+            case 95,96,99:
+                document.querySelector('#iconWeather').setAttribute('class',"bi bi-cloud-lightning-rain")
+                break;
+            default:
+                break;
+           }
+        })
+    </script>
+</body>
+</html>
