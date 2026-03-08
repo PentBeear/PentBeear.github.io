@@ -74,7 +74,7 @@
             }
         }).then(data => {
             document.querySelector('#divTemperature').textContent = data.current.temperature_2m + "°"
-            document.querySelector('#divHumidity').textContent = data.current.relative_humidity_2m + "°"
+            document.querySelector('#divHumidity').textContent = data.current.relative_humidity_2m + "%"
             /*
             case clearSky = 0
             case mainlyClear = 1
